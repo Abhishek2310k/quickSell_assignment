@@ -4,6 +4,7 @@
     box-shadow: 0 0 0.5rem #12121221;
     background-color: #fff;
     width: 240px;
+    min-width: 240px;
 }
 .card .ticket-id {
     color: #6b6f76;
@@ -68,8 +69,8 @@
     flex-shrink: 0;
 }
 
-@media screen and (max-width:700px) {
+/* @media screen and (max-width:700px) {
     .card {
         min-width: fit-content;
     }
-}
+} */
