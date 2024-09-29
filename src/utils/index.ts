@@ -21,8 +21,13 @@ export const groupTicketsByPriority = (tickets: Ticket[]) => {
         result[priority].push(ticket);
         return result;
     }, { "No priority": [], "Low": [], "Medium": [], "High": [], "Urgent": [] });
+    const orderedPriorities = ["Urgent", "High", "Medium", "Low", "No priority"];
+    const sortedGroups: Record<string, Ticket[]> = {};
+    orderedPriorities.forEach((priority) => {
+        sortedGroups[priority] = groups[priority].sort((a: Ticket, b: Ticket) => b.priority - a.priority);
+    });
 
-    return groups;
+    return sortedGroups;
 };
 
 export const groupTicketsByUserId = (tickets: Ticket[]) => {

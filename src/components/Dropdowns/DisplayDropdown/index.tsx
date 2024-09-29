@@ -1,7 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState, ChangeEvent } from 'react';
 import './displayDropdown.css'
-import { LuSettings2 } from "react-icons/lu";
-import { BiChevronDown } from "react-icons/bi";
 
 
 function DisplayDropdown({ grouping, setGrouping, ordering, setOrdering }: { grouping: string, setGrouping: (grouping: string) => void, ordering: string, setOrdering: (ordering: string) => void }) {
@@ -32,9 +30,10 @@ function DisplayDropdown({ grouping, setGrouping, ordering, setOrdering }: { gro
   return (
     <div className='display-dropdown' ref={componentRef}>
       <div className='dropdown-label-container' onClick={openDropdown}>
-        <LuSettings2 color='#6b6f76' />
+        {/* <LuSettings2 color='#6b6f76' /> */}
+        <img src='/icons_FEtask/Display.svg' alt='menu'/>
         <div className='dropdown-label'>Display</div>
-        <BiChevronDown color='#6b6f76' />
+        <img src='/icons_FEtask/down.svg' alt='options'/>
       </div>
       <div className={`dropdown-content-container ${visible && "visible"}`}>
         <div className='dropdown-content-row'>

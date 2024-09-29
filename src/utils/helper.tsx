@@ -1,29 +1,51 @@
-import { BiRadioCircle } from 'react-icons/bi';
-import { LuMoreHorizontal } from 'react-icons/lu';
-import { TbProgress } from 'react-icons/tb';
-import { IoCheckmarkDoneCircle } from 'react-icons/io5';
-import { AiFillCloseCircle, AiFillWarning } from 'react-icons/ai';
-import { BiSignal2, BiSignal3, BiSignal4 } from 'react-icons/bi';
-
+const iconSize = { width: 14, height: 14 }; // Define size once here
 
 export const getPriorityIcon = (priority: string) => {
+    let iconPath = "";
     switch (priority) {
-        case "No priority": return <LuMoreHorizontal color="#797d84" size={14} />
-        case "Low": return <BiSignal2 color='#6b6f76' size={14} />
-        case "Medium": return <BiSignal3 color='#6b6f76' size={14} />
-        case "High": return <BiSignal4 color='#6b6f76' size={14} />
-        case "Urgent": return <AiFillWarning color='#fc7840' size={14} />
-        default: return <AiFillWarning color='#fc7840' size={14} />
+        case "No priority":
+            iconPath = "/icons_FEtask/No-priority.svg";
+            break;
+        case "Low":
+            iconPath = "/icons_FEtask/Img - Low Priority.svg";
+            break;
+        case "Medium":
+            iconPath = "/icons_FEtask/Img - Medium Priority.svg";
+            break;
+        case "High":
+            iconPath = "/icons_FEtask/Img - High Priority.svg";
+            break;
+        case "Urgent":
+            iconPath = "/icons_FEtask/SVG - Urgent Priority colour.svg";
+            break;
+        default:
+            iconPath = "/icons_FEtask/No-priority.svg";
     }
-}
 
-export const getStatusIcon = (priority: string) => {
-    switch (priority) {
-        case "Backlog": return <BiRadioCircle color='#e2e2e2' size={24} />
-        case "Todo": return <BiRadioCircle color='#e2e2e2' size={24} />
-        case "In progress": return <TbProgress color='#f1ca4b' size={16} />
-        case "Done": return <IoCheckmarkDoneCircle color='#5e6ad2' size={16} />
-        case "Canceled": return <AiFillCloseCircle color='#94a2b3' size={16} />
-        default: return <AiFillCloseCircle color='#94a2b3' size={16} />
+    return <img src={iconPath} alt={priority} {...iconSize} />;
+};
+
+export const getStatusIcon = (status: string) => {
+    let iconPath = "";
+    switch (status) {
+        case "Backlog":
+            iconPath = "/icons_FEtask/Backlog.svg";
+            break;
+        case "Todo":
+            iconPath = "/icons_FEtask/To-do.svg";
+            break;
+        case "In progress":
+            iconPath = "/icons_FEtask/in-progress.svg";
+            break;
+        case "Done":
+            iconPath = "/icons_FEtask/Done.svg";
+            break;
+        case "Canceled":
+            iconPath = "/icons_FEtask/Cancelled.svg";
+            break;
+        default:
+            iconPath = "/icons_FEtask/Cancelled.svg";
     }
-}
+
+    return <img src={iconPath} alt={status} {...iconSize} />;
+};
